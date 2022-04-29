@@ -39,19 +39,23 @@ boulderButton.addEventListener('click', () => {
 });
 
 function handleGuess(correctSpot, userGuess) {
+    shedContainer.classList.remove('face');
+    treeContainer.classList.remove('face');
+    boulderContainer.classList.remove('face');
+
     totalGuesses++;
 
     const correctHidingPlaceEl = document.getElementById(`${correctSpot}-container`);
-    correctHidingPlaceEl.classList.add('face');
-
+    
     if (userGuess === correctSpot) {
-        correctGuesses++
-    };
-        // //  else if {
-        //      correctHidingPlaceEl.classList.remove('face')};
+        correctGuesses++;
+        correctHidingPlaceEl.classList.add('face');
+    }
+
+    
 
 
-totalEl.textContent = totalGuesses;
-winsEl.textContent = correctGuesses;
-lossesEl.textContent = totalGuesses - correctGuesses;
-};
+    totalEl.textContent = totalGuesses;
+    winsEl.textContent = correctGuesses;
+    lossesEl.textContent = totalGuesses - correctGuesses;
+}
